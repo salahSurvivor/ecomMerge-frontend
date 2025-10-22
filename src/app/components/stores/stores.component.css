@@ -1,0 +1,13 @@
+#listLandingPages{
+    list-style: decimal;
+    text-align: left !important;
+    align-items: start;
+    padding-left: 10px;
+}
+#listLandingPages li{
+    color: rgb(44, 44, 255);
+    text-align: left !important;
+}
+#listLandingPages li:hover{
+    text-decoration: underline;
+}

@@ -1,0 +1,681 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+body{  
+  background: rgb(245, 245, 245);
+  font-family: var(--font-family);
+}
+.padding-container{
+  padding-top: 90px !important;
+  padding-bottom: 20px !important;
+}
+/*Start Our NavBar*/
+
+.navbar{
+    padding: 20px;    
+}
+
+.navbar .nav-link{
+    font-size: 1em;
+}
+
+.navbar-nav{
+    position: absolute;
+    right: 100px;
+}
+/*End Our NavBar*/
+
+/*Start Our Home*/
+.home-container{
+    margin: 50px auto;
+}
+.product-magasin-link{
+  text-transform: uppercase;
+    color: #0069ff;
+    font-weight: bolder;
+    list-style-type: none;
+    list-style: none;
+    text-decoration: none;
+}
+.breadcrumb{
+  text-decoration: none !important;
+}
+.product-magasin-link:hover{
+    text-decoration: none;
+}
+
+.stores-container {
+    display: flex;
+    flex-direction: column; /* ou 'row' si tu veux les éléments côte à côte */
+    align-items: center;     /* centre horizontalement */
+    justify-content: center; /* centre verticalement (si hauteur définie) */
+    min-height: 100vh;       /* occupe toute la hauteur de l'écran */
+    padding: 2rem;           /* optionnel, pour un peu d'espace */
+    gap: 2rem; 
+}
+
+/* Landing page */
+.lp-dorpsDown-container{
+  width: 100%;
+}
+.custom-dropdown {
+  width: 100% !important;
+  margin-bottom: 10px;
+}
+.custom-dropdown .p-dropdown {
+  width: 100%;
+}
+.lp-name-inpt{
+  width: 100%;
+  height: 45px;
+  padding-left: 18px;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+}
+.lp-name-inpt:focus{
+  border: #0755c2;
+  box-shadow: 0 0 0 0.2rem rgba(7, 85, 194, 0.25);
+}
+
+/*  */
+
+.erp-form {
+    width: 300px; /* ou une autre largeur fixe */
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.home-container p{
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.erp-form-info{
+    padding: 16px;
+}
+
+.home-container .erp-form{
+    display: inline-block;
+    width: 25%;
+    margin: 0 25px;
+    border-radius: 16px;
+}
+
+.erp-form-redirect{
+    background: #fff;
+    padding: 16px;
+    border-radius: 0px 0px 14px 14px;
+}
+/*End Our Home*/
+
+/*Start our stores*/
+.store-card {
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+.store-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+.modal-content {
+  transition: all 0.3s ease-in-out;
+}
+/*End our stores*/
+
+/*Start Our Erp Page*/
+.erp-container{
+    margin: 50px auto;
+}
+
+.erp-container .button-a{
+    margin-bottom: 25px;
+}
+
+.erp-container form{
+    background: #fff;
+    margin: 26px 0;
+    padding: 26px;
+    border-radius: 16px;
+}
+
+.label-edit{
+    background: #fff;
+    color: rgb(7, 182, 182);
+    padding: 8px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+/*End Our Erp Page*/
+
+/*Erp Show Start*/
+.showErp-container{
+    margin: 100px auto;
+}
+
+.search{
+    float: right;
+    width: 300px;
+}
+
+.showErp-container table{
+    width: 100%;
+    text-align: center;
+}
+
+.showErp-container table tr th{
+    background: rgb(74, 187, 253);
+    padding: 15px;
+}
+
+.showErp-container table tr td{
+    background: #fff;
+    text-align: center;
+    padding: 15px;
+}
+
+.alert{
+    position: fixed;
+    /* right: 25px;
+    bottom: 25px;
+    width: 300px; */
+}
+
+.form-edit{
+    margin: 26px auto;
+}
+/*Erp Show End*/
+
+/*Losses And Purchases Start*/
+/* Titres généraux */
+h2, h4 {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h2 {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+h4 {
+  font-weight: 600;
+  color: #495057;
+}
+
+/* Boutons stylisés */
+.btn {
+  border-radius: 0.6rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Cartes propres */
+.card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  background-color: #fff;
+}
+
+/* Alerts plus visibles */
+.alert {
+  font-weight: 500;
+  border-left: 4px solid #198754;
+  border-radius: 0.5rem;
+}
+
+/* Modals */
+.modal-content {
+  border-radius: 1rem;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Tableau général (si tu utilises Bootstrap tables) */
+table th {
+  font-weight: bold;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.alert.alert-success.alert-dismissible.fade.show.mt-4.d-flex.justify-content-between.align-items-center.ms-auto.me-3 {
+    position: fixed;
+    top: 57px;
+    height: 63px;
+}
+
+
+.card {
+  border-radius: 1rem;
+  background-color: #f8f9fa;
+}
+
+.btn {
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.03);
+}
+
+.alert i {
+  font-size: 1.2rem;
+}
+
+.ls-pr{
+    margin: 50px auto;
+}
+
+.ls-pr .lsPr-title{
+    color: rgb(2, 152, 202);
+    font-weight: bold;
+    width: 100%;
+    max-width: auto;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.ls-pr .lsPr-title p{
+    width: 50%;
+    margin: auto;
+    padding: 18px;
+    background: #fff;
+    border-radius: 16px;
+}
+
+.showErp-container-edit{
+    margin: 50px auto;
+}
+/*Losses And Purchases End*/
+
+/*Pagination Edit Start*/
+.ngx-pagination .current{
+    margin: 16px auto;
+}
+/*Pagination Edit End*/
+
+.my-col-6{
+    display: inline-block;
+}
+
+.my-col-6.input {
+    width: 70%;
+}
+
+.my-col-6.label {
+    font-weight: 500;
+    width: 30%;
+}
+
+.my-col-container{
+    margin: 0 0 16px 0;
+}
+
+.my-bold{
+    font-weight: bold;
+}
+
+.my-border{
+    font-weight: 600;
+    margin: 0 0 8px 0;
+}
+
+.actions{
+    text-align: end;
+    margin: auto;
+}
+
+.actions img{
+    width: 40px;
+    height: 40px;
+}
+
+.actions div{
+    cursor: pointer;
+    display: inline;
+    margin:  0px 3px;
+}
+
+.title{
+    display: inline-block;
+}
+
+.recap{
+    display: inline-block;
+    margin: 10px 25px;
+    text-align: center;
+}
+
+.recap-number{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.recap-libelle{
+    font-weight: 400;
+}
+
+.my-green{
+    color: #22C55E;
+}
+
+.my-reed{
+    color: #EF4444;
+}
+
+.my-grey{
+    color: rgb(126 126 126);
+}
+
+.first-section{
+    margin-top: 50px;
+    height: 12px;
+}
+
+.register-form{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #0069ff;
+}
+
+.register-form label{
+    font-weight: 500;
+    font-size: 17px;
+    color: #fff;
+    margin: 10px 0;
+}
+
+.register-form .img{
+    position: absolute;
+    margin: 50px 100px;
+    width: 300px;
+    color: #fff;
+    font-style: oblique;
+    font-weight: 650;
+    font-size: 28px;
+}
+
+.register-form form{
+    margin: 130px auto;
+    border-radius: 8px;
+    width: 400px;
+    padding: 30px 20px 50px 20px;
+}
+
+.register-form .input-text{
+    margin: 25px 0;
+}
+
+.register-form .input-text input{
+    width: 350px;
+}
+
+.register-form input.btn.btn-primary{
+    align-items: center;
+    position: relative;
+    left: 110px;
+    width: 130px;
+    padding: 14px;
+    border-radius: 5px;
+    background: #0755c2;
+    font-weight: bold;
+    border-radius: 16px;
+}
+/* Login page new CSS start */
+/* Login page new CSS start */
+.login-wrapper {
+  height: 100vh;
+  background: linear-gradient(135deg, #0755c2, #88a6d1);
+  padding: 20px;
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center the content */
+  align-items: center; /* Center vertically */
+}
+
+.image-container {
+  margin-right: 20px; /* Space between the image and the form */
+}
+
+.image-container img {
+  max-width: 450px; /* Set a max width for the image */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 15px; /* Match form's border radius */
+}
+
+.login-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.brand {
+  color: #0755c2;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.form-label {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.btn-primary {
+  padding: 10px;
+  font-weight: 600;
+  border-radius: 10px;
+  background-color: #0755c2;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #064bb3;
+}
+
+
+  .hover-shadow:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
+    transform: translateY(-2px);
+    transition: all 0.2s ease-in-out;
+  }
+/*login page new css end*/
+
+/*register page new css start*/
+/* Register page new CSS start */
+.register-wrapper {
+  height: 100vh;
+  background: linear-gradient(135deg, #0755c2, #88a6d1);
+  padding: 20px;
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center the content */
+  align-items: center; /* Center vertically */
+}
+
+.image-container {
+  margin-right: 20px; /* Space between the image and the form */
+}
+
+.image-container img {
+  max-width: 450px; /* Set a max width for the image */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 15px; /* Match form's border radius */
+}
+
+.register-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.brand {
+  color: #0755c2;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.form-label {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.btn-primary {
+  padding: 10px;
+  font-weight: 600;
+  border-radius: 10px;
+  background-color: #0755c2;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #064bb3;
+}
+
+/*register page new css end*/
+
+/*Chart css start*/
+.chart-container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+canvas {
+  height: auto !important;
+  max-height: 300px;
+}
+/*Chart css end*/
+
+.recap-card {
+  padding: 20px;
+  border-radius: 12px;
+  min-width: 150px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  background-color: #f8f9fa;
+}
+
+.recap-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.recap-number {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.recap-label {
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+.icon-wrapper img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.icon-wrapper img:hover {
+  transform: scale(1.1);
+}
+
+.search input {
+  min-width: 220px;
+}
+.text-style{
+  text-transform: uppercase;
+}
+.showErp-container{
+    padding-top: 1rem;
+
+  }
+@media (max-width: 768px) {
+  .paddingStyle{
+    padding-bottom: 100px;
+  }
+  .recap-container{
+    padding-bottom: 50px;
+  }
+  .showErp-container{
+    padding-top: 270px !important;
+
+  }
+   .register-wrapper {
+    flex-direction: column-reverse; /* Stack elements vertically */
+    align-items: center; /* Center items */
+  }
+
+  
+  .login-wrapper {
+    flex-direction: column-reverse; /* Stack elements vertically */
+    align-items: center; /* Center items */
+  }
+
+  .image-container {
+    margin-right: 0; /* Remove right margin on mobile */
+    margin-top: 20px; /* Add top margin for spacing */
+  }
+
+  .image-container img {
+    max-width: 100%; /* Make image responsive */
+  }
+  .recap-container {
+    justify-content: center;
+  }
+
+  .action-icons {
+    justify-content: center !important;
+    margin-top: 20px;
+  }
+
+  .search input {
+    width: 100%;
+  }
+}
+
+
+@media(max-width: 992px){
+    .first-section{
+        height: 30px;
+    }
+
+    .navbar-nav{
+        position: relative;
+        right: 0;
+    }
+
+    .navbar-nav li{
+        margin: 3px 0;
+    }   
+
+    /*Home Page Start*/
+    .home-container .erp-form{
+        margin: 45px auto;
+        width: 60%;
+        display: block;
+    }
+
+    .home-container br{
+        display: none;
+    }    
+    /*Home Page End*/
+}
+
+
+

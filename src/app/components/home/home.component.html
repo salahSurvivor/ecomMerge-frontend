@@ -1,0 +1,98 @@
+<div class="container  padding-container">
+  <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-body-tertiary rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item "><a href="/">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Aperçu des Profits</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  <h2 class="fw-bold mb-4 text-center text-uppercase">Aperçu des Bénéfices</h2>
+
+  <div class="row g-4">
+    <div class="col-md-6 col-lg-3">
+      <div class="card shadow-sm border-0 bg-gradient bg-success text-white">
+        <div class="card-body">
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold">Bénéfices totaux</h5>
+              <h3 class="mb-0">{{ totalProfits }} MAD</h3>
+            </div>
+            <i class="fa-solid fa-coins fa-2x opacity-75"></i>
+          </div>
+        </div>
+        <div class="card-footer border-0 bg-transparent text-end">
+          <a routerLink="addErp" class="text-white-50 text-decoration-none">Plus d'info</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+      <div class="card shadow-sm border-0 bg-gradient bg-info text-white">
+        <div class="card-body">
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold">Argent Total</h5>
+              <h3 class="mb-0">{{ totalMoney }} MAD</h3>
+            </div>
+            <i class="fa-solid fa-wallet fa-2x opacity-75"></i>
+          </div>
+        </div>
+        <div class="card-footer border-0 bg-transparent text-end">
+          <a routerLink="addErp" class="text-white-50 text-decoration-none">Plus d'info</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+      <div class="card shadow-sm border-0 bg-gradient bg-primary text-white">
+        <div class="card-body">
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold">Bénéfices du Mois</h5>
+              <h3 class="mb-0">{{ monthProfits }} MAD</h3>
+            </div>
+            <i class="fa-solid fa-calendar-alt fa-2x opacity-75"></i>
+          </div>
+        </div>
+        <div class="card-footer border-0 bg-transparent text-end">
+          <a routerLink="addErp" class="text-white-50 text-decoration-none">Plus d'info</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+      <div class="card shadow-sm border-0 bg-gradient bg-warning text-dark">
+        <div class="card-body">
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold">Bénéfices du Jour</h5>
+              <h3 class="mb-0">{{ dayProfits }} MAD</h3>
+            </div>
+            <i class="fa-solid fa-calendar-day fa-2x opacity-75"></i>
+          </div>
+        </div>
+        <div class="card-footer border-0 bg-transparent text-end">
+          <a routerLink="addErp" class="text-dark text-decoration-none">Plus d'info</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5 justify-content-center">
+    <div class="col-lg-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-header bg-light fw-bold text-center fs-5">Distribution des Profits</div>
+        <div class="chart-container mx-auto my-4" style="height: 300px;">
+        <canvas baseChart
+            [type]="'pie'"
+            [data]="pieChartData"
+            [options]="pieChartOptions">
+        </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

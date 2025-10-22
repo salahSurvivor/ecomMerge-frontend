@@ -1,0 +1,48 @@
+<form [formGroup]="lossesForm" *ngIf="lossesShow" (ngSubmit)="OnSubmit()">
+    <div class="form-group mb-3">
+        <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-pen-nib"></i>
+            </span>
+            <input 
+                type="text" 
+                formControlName="name"
+                [(ngModel)]="name" 
+                class="form-control" 
+                placeholder="Nom des Pertes" 
+                aria-label="Nom d'utilisateur" 
+                aria-describedby="basic-addon1" 
+                required />  
+        </div>
+        <div class="form-text text-danger" *ngIf="Name.touched || Name.dirty">
+            <p *ngIf="Name.errors?.['required']">Le nom est requis</p>
+        </div>    
+    </div>
+
+    <div class="form-group mb-3">
+        <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-money-bill"></i>
+            </span>
+            <input 
+                type="text" 
+                name="price" 
+                formControlName="price"
+                [(ngModel)]="price" 
+                class="form-control" 
+                placeholder="Prix des Pertes"
+                aria-label="Nom d'utilisateur" 
+                aria-describedby="basic-addon1" 
+                required/>
+        </div>
+        <div class="form-text text-danger" *ngIf="Price.touched || Price.dirty">
+            <p *ngIf="Price.errors?.['required']">Le prix est requis</p>
+            <p *ngIf="Price.errors?.['pattern']">Veuillez fournir un prix valide</p>
+        </div> 
+    </div>
+
+    <div class="input-group mb-3">
+        <input type="submit" class="btn btn-success" value="Ajouter" [disabled]="lossesForm.invalid"/>
+    </div>
+
+</form>

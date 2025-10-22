@@ -1,0 +1,21 @@
+export interface Purchases{
+    _id?: number,
+    number:  Number,
+    productName:  String,
+    productTitle:  String,
+    productDescription:  String,
+    productFeature1:  String,
+    productFeature2:  String,
+    productFeature3:  String,
+    productImg1:  String,
+    productImg2:  String,
+    productImg3:  String,
+    productquantity:  Number,
+    purchasePrice:  Number,
+    salePrice:  Number,
+    totalP: Number,
+    storeId:  Number,
+    dateP: string,
+    createdAt: Date,
+    societeCode: string
+}

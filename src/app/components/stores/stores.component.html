@@ -1,0 +1,174 @@
+<div class="container padding-container">
+  
+  <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-body-tertiary rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item "><a href="/">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Magasins</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <div  *ngIf="successShow" class="alert   alert-success alert-dismissible fade show" role="alert">
+  <i class="fa-solid fa-check"></i>
+  The {{ successText }} Has Been Added!!
+  <button type="button" class="btn-close" (click)="toggleSuccess()"></button>
+</div>
+  <!-- Header -->
+  <div class="text-center mb-5">
+    <h2 class="fw-bold text-dark"><i class="fa-solid fa-store me-2 text-primary"></i> Liste des Magasins</h2>
+    <p class="text-muted">Gérez vos boutiques de manière simple et élégante.</p>
+  </div>
+
+  <!-- Liste des stores -->
+  <div class="row justify-content-center gy-4">
+  <div class="col-md-6 col-lg-4" *ngFor="let store of stores">
+    <div class="card h-100 shadow-sm position-relative store-card border-0 rounded-4">
+
+      <!-- Bouton : Voir produits du store -->
+      <button 
+        (click)="onChangeStoreId(store._id)" 
+        class="btn btn-sm btn-outline-primary position-absolute top-0 start-0 m-2 rounded-circle shadow"
+        title="Voir les produits" 
+        data-bs-toggle="modal" 
+        data-bs-target="#storeInfo">
+        <i class="pi pi-shopping-cart"></i>
+      </button>
+
+      <!-- Bouton : Supprimer le store -->
+      <button 
+        (click)="onDeleteClick(store)" 
+        class="btn btn-sm btn-outline-danger position-absolute top-0 end-0 m-2 rounded-circle shadow"
+        title="Supprimer le magasin" 
+        data-bs-toggle="modal" 
+        data-bs-target="#stores">
+        <i class="pi pi-trash"></i>
+      </button>
+
+      <div class="card-body pt-5">
+        <h5 class="card-title text-primary text-style" >
+          <i class="bi bi-shop me-2"></i>{{ store.name }}
+        </h5>
+        <p class="card-text text-muted">
+          <i class="bi bi-file-earmark-text me-2"></i>{{ store.description }}
+        </p>
+        <p class="mt-2">
+          <i class="bi bi-tags me-2 text-muted"></i>
+          <span class="badge bg-info text-dark">{{ store.category }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Bouton Ajouter -->
+  <div class="text-center mt-5">
+    <button class="btn btn-outline-primary btn-lg rounded-pill px-4 shadow-sm" data-bs-toggle="modal"
+      data-bs-target="#addStoreModal">
+      <i class="bi bi-plus-circle me-2"></i>Ajouter un Magasin
+    </button>
+  </div>
+
+  <!-- Modal Ajouter Store -->
+  <div class="modal fade" id="addStoreModal" tabindex="-1" aria-labelledby="addStoreModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content border-0 rounded-4 shadow">
+        <form (ngSubmit)="addStore()">
+          <div class="modal-header bg-primary text-white rounded-top-4">
+            <h5 class="modal-title" id="addStoreModalLabel">Nouveau magasin</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body bg-light">
+            <div class="mb-3">
+              <label for="storeName" class="form-label">Nom du magasin</label>
+              <input type="text" id="storeName" class="form-control" [(ngModel)]="newStore.name" name="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="storeDescription" class="form-label">Description</label>
+              <textarea id="storeDescription" class="form-control" [(ngModel)]="newStore.description" name="description"
+                required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="storeCategory" class="form-label">Catégorie</label>
+              <input type="text" id="storeCategory" class="form-control" [(ngModel)]="newStore.category" name="category"
+                required>
+            </div>
+          </div>
+          <div class="modal-footer bg-light">
+            <button type="button" id="confirm-modaldismiss1" class="btn btn-secondary"
+              data-bs-dismiss="modal">Annuler</button>
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Success Section Start-->
+<!--Success Section End-->
+
+<!-- Modal -->
+<div class="modal fade" id="stores" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Store</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <i class="fa-solid fa-triangle-exclamation text-warning"></i>
+        Are You Sure You Want To Delete This ??
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="delete()">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Info Store -->
+<div class="modal fade" id="storeInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title w-100 text-center" id="exampleModalLabel">Magasin Products</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="row g-3">
+          <!-- Product Card -->
+
+          <div class="col-6 col-md-4 col-lg-3"  *ngFor="let pr of filteredProducts">
+            <div class="border rounded-4 shadow-sm h-100 d-flex flex-column p-3 bg-light hover-shadow">
+              <img [src]="'https://portfolio-backend-x5yn.onrender.com/uploads/'+ pr.productImg1" alt="Product Image" class="img-fluid rounded mb-2"
+                style="max-height: 130px; object-fit: cover; width: 100%;" />
+              <h6 class="text-center fw-semibold mb-1 text-dark">{{ pr.productName }}</h6>
+              <div *ngFor="let lp of filteredLandingPage(pr._id)">
+                <ul class="list-unstyled mt-2" id="listLandingPages">
+                  <li>
+                    <a [href]="lp.path" target="_blank" class="product-magasin-link ">
+                      {{ lp.lp_Name }}
+                      <i class="pi pi-eye"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div *ngIf="!filteredLandingPage?.length">
+                <small class="text-muted">Aucune landing page</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

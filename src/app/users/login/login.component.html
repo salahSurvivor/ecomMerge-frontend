@@ -1,0 +1,30 @@
+<div class="register-form">
+    
+
+    <form (ngSubmit)="onLogin()">
+        <h1 class="text-white">Connexion</h1>
+        <div class="input-text">
+            <label>Username</label>
+            <input 
+            type="text"
+            name="name"
+            pInputText [(ngModel)]="name" />
+        </div>
+
+        <div class="input-text">
+            <label>Password</label>
+            <input 
+            type="password"
+            name="password"
+            pInputText [(ngModel)]="password" />
+        </div>
+
+        <input type="submit" value="Connexion" class="btn btn-primary" />
+
+        <div></div>
+        <a routerLink="/register"
+           class="float-end edit-register-btn text-white">Register</a>
+    </form>
+</div>
+
+<p-toast></p-toast>

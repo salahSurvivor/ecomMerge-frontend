@@ -1,0 +1,30 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #80bdff;
+}
+
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  padding: 10px;
+  border: 1px solid #f5c6cb;
+  border-radius: 0px 20px 20px 0;
+  margin: 10px 0;
+}
+
+.title-container > .form-title {
+  background-color: #2668C5;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 0 20px 20px 0;
+  display: inline-block;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}

@@ -1,0 +1,56 @@
+<div class="table container">
+
+    <p-table 
+        [paginator]="true"
+        [rows]="4" 
+        [value]="users">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th style="width: 15rem">
+                Is admin
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-emp>
+        <tr>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.email }}</td>
+            <td>
+                <p-toggleButton 
+                    [(ngModel)]="emp.isAdmin"
+                    onLabel="{{emp.isAdmin ? 'Yes' : 'No'}}" 
+                    offLabel="{{emp.isAdmin ? 'Yes' : 'No'  }}"
+                    [style]="{ 'margin-right': '.5em' }"></p-toggleButton>
+                
+                <button 
+                    (click)="onUpdate(emp)"
+                    pButton pRipple 
+                    label="Apply" 
+                    class="p-button-success"
+                    [style]="{ 'margin-right': '.3em' }">
+                </button>    
+
+                <p-button 
+                    icon="pi pi-trash" 
+                    styleClass="p-button-danger"
+                    (click)="onDelete(emp)"></p-button>
+                
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div style="text-align:left">
+            <p-button 
+                icon="pi pi-refresh" 
+                label="Reload"
+                (click)="ngOnInit()">
+            </p-button>
+        </div>
+    </ng-template>
+    </p-table>
+
+</div>
+
+<p-toast></p-toast>

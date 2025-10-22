@@ -1,0 +1,46 @@
+<div class="erp-container container">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="button-a">
+                <input 
+                    class="btn btn-info" 
+                    [ngClass]="lossesShow ? 'btn-danger' : 'btn-info'" 
+                    type="button" 
+                    [value]="lossesShow ? 'Close' : 'Add Losses'"
+                    (click)="toggleLosses()"/>
+            </div>
+            <app-add-losses 
+                [lossesShow]="lossesShow"
+                (addLosses)="AddLosses($event)">
+            </app-add-losses>
+        </div>
+        <!--div class="col-lg-4">
+            <div class="label-edit text-center">
+                Add Product And Customer Information 
+            </div>
+            <app-add-info (addInfo)="AddInfo($event)"></app-add-info>
+        </div-->
+        <div class="col-lg-6">
+            <div class="button-a">
+                <input 
+                    class="btn mx-auto" 
+                    [ngClass]="purchasesShow ? 'btn-danger' : 'btn-info'" 
+                    type="button" 
+                    [value]="purchasesShow ? 'Close' : 'Add Bulk Purchases'"
+                    (click)="togglePurchases()"/>
+            </div>
+            <app-add-purchases
+                [purchasesShow]="purchasesShow"
+                (addP)="addPurchases($event)">
+            </app-add-purchases>
+        </div>
+    </div>
+</div>
+
+<!--Success Section Start-->
+<div *ngIf="successShow" class="alert alert-success alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-check"></i>
+    The {{ successText }} Has Been Added!!
+    <button type="button" class="btn-close" (click)="toggleSuccess()"></button>
+  </div>
+<!--Success Section End-->          

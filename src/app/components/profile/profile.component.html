@@ -1,0 +1,113 @@
+<section class="padding-container" style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-body-tertiary rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Profil de l'utilisateur</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{ username }}</h5>
+            <p class="text-muted mb-1">{{isAdmin ? "Admin" : "Livreur"}}</p>
+            <p class="text-muted mb-4">{{address}}</p>
+            <div class="d-flex justify-content-center mb-2">
+              <button type="button" class="btn btn-primary" (click)="openEditModal()">Modifier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Nom Complet</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{username}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{email}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Téléphone</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{phone}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Adresse</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{address}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Profile Modal -->
+  <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form (ngSubmit)="updateProfile()">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editProfileModalLabel">Modifier le Profil</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="editUsername" class="form-label">Nom Complet</label>
+              <input type="text" id="editUsername" class="form-control" [(ngModel)]="editUsername" name="editUsername" required>
+            </div>
+            <div class="mb-3">
+              <label for="editEmail" class="form-label">Email</label>
+              <input type="email" id="editEmail" class="form-control" [(ngModel)]="editEmail" name="editEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="editPhone" class="form-label">Téléphone</label>
+              <input type="text" id="editPhone" class="form-control" [(ngModel)]="editPhone" name="editPhone">
+            </div>
+            <div class="mb-3">
+              <label for="editAddress" class="form-label">Adresse</label>
+              <input type="text" id="editAddress" class="form-control" [(ngModel)]="editAddress" name="editAddress">
+            </div>
+            <div class="mb-3">
+              <label for="editPassword" class="form-label">Mot de Passe (laisser vide pour conserver l'actuel)</label>
+              <input type="password" id="editPassword" class="form-control" [(ngModel)]="editPassword" name="editPassword">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            <button type="submit" class="btn btn-success">Sauvegarder les Modifications</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,120 @@
+<div class="erp-container container padding-container ">
+  <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-body-tertiary rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item "><a href="/">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Catalogue</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+</div>
+<div class="erp-container container ">
+  
+  <div class="container mt-4">
+    <h2 class="text-center fw-bold text-uppercase text-primary mb-4">
+      Gestion des Pertes et Achats en Gros
+    </h2>
+  </div>
+
+  <div class="row g-4">
+    <!-- Add Losses -->
+    <div class="col-lg-6">
+      <div class="card shadow-sm rounded p-3">
+        <div class="d-flex justify-content-center mb-3">
+          <input 
+            class="btn px-4 py-2 fw-semibold"
+            [ngClass]="lossesShow ? 'btn-danger' : 'btn-info'" 
+            type="button" 
+            [value]="lossesShow ? 'Fermer' : 'Ajouter des Pertes'"
+            (click)="toggleLosses()" />
+        </div>
+        <app-add-losses 
+          [lossesShow]="lossesShow"
+          (addLosses)="AddLosses($event)">
+        </app-add-losses>
+      </div>
+    </div>
+
+    <!-- Add Purchases -->
+    <div class="col-lg-6">
+      <div class="card shadow-sm rounded p-3">
+        <div class="d-flex justify-content-center mb-3">
+          <input 
+            class="btn px-4 py-2 fw-semibold"
+            [ngClass]="purchasesShow ? 'btn-danger' : 'btn-info'" 
+            type="button" 
+            [value]="purchasesShow ? 'Fermer' : 'Ajouter des Achats en Gros'"
+            (click)="togglePurchases()" />
+        </div>
+        <app-add-purchases
+          [purchasesShow]="purchasesShow"
+          (addP)="addPurchases($event)">
+        </app-add-purchases>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Success Alert -->
+<div *ngIf="successShow"
+  class="alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 mb-4 me-4 d-flex justify-content-between align-items-center"
+  style="max-width: 400px; z-index: 1050;"
+  role="alert">
+
+  <div>
+    <i class="fa-solid fa-check-circle me-2"></i>
+    <strong>{{ successText }}</strong>
+  </div>
+
+  <button type="button" class="btn-close ms-2" (click)="toggleSuccess()" aria-label="Close"></button>
+</div>
+
+<!-- Show Section -->
+<div class="showErp-container container mt-5">
+  <div class="d-flex justify-content-end mb-3">
+    <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#filter">
+      <i class="fa-solid fa-filter me-2"></i> Filtrer
+    </button>
+  </div>
+  <div class="row g-4">
+    
+    <div class="col-lg-12">
+      <app-show-purchases [pr]="pr" (dltP)="deletePurchase()"></app-show-purchases>
+    </div>
+    <div class="col-lg-12">
+      <app-show-losses [ls]="ls" (dltL)="deleteLosses()"></app-show-losses>
+    </div>
+  </div>
+</div>
+
+<!-- Filter Modal -->
+<div class="modal fade" id="filter" tabindex="-1" aria-labelledby="filterLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content shadow">
+      <div class="modal-header bg-light">
+        <h5 class="modal-title" id="filterLabel">Filtrer par Date</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body">
+        <label class="fw-semibold mb-2">Pertes</label>
+        <div class="input-group mb-4">
+          <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
+          <input type="date" name="losses" [(ngModel)]="losses" class="form-control">
+        </div>
+
+        <label class="fw-semibold mb-2">Achats</label>
+        <div class="input-group mb-2">
+          <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
+          <input type="date" name="purchases" [(ngModel)]="purchases" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-outline-danger" (click)="clear()" data-bs-dismiss="modal">Effacer</button>
+        <button type="button" class="btn btn-success text-white" (click)="filter()" data-bs-dismiss="modal">Filtrer</button>
+      </div>
+    </div>
+  </div>
+</div>

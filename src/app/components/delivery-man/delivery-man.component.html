@@ -1,0 +1,97 @@
+<!-- src/app/delivery-man/delivery-man.component.html -->
+<div class="container-lg padding-container">
+   <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-body-tertiary rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item "><a href="/">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Aperçu des Livreurs</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  <!-- Title Above the Form -->
+  <div class="title-container w-full mb-3">
+    <h5 class="form-title">Créer un Livreur</h5>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="alert alert-danger mt-5 ms-3 center w-full container-lg">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Form -->
+  <form (ngSubmit)="editing ? updateDeliveryMan() : createDeliveryMan()" class="bg-light p-4 rounded shadow">
+    <div class="form-group mb-3">
+      <label for="">Nom/Prenom</label>
+
+      <input [(ngModel)]="deliveryMan.userName" name="name" class="form-control" placeholder="Nom" required />
+    </div>
+    <div class="form-group mb-3">
+      <label for="">téléphone</label>
+
+      <input [(ngModel)]="deliveryMan.phone" name="phone" class="form-control" placeholder="Téléphone" required />
+    </div>
+    <div class="form-group mb-3">
+      <label for="">vehicule</label>
+      <select [(ngModel)]="deliveryMan.vehicle" name="vehicle" class="form-control" required>
+        <option value="" disabled selected>Choisir un véhicule</option>
+        <option value="Bike">Vélo</option>
+        <option value="Van">Fourgon</option>
+        <option value="Truck">Camion</option>
+        <option value="Scooter">Trottinette</option>
+      </select>
+    </div>
+    <div class="form-group mb-3">
+            <label for="">numéro de licence</label>
+
+      <input [(ngModel)]="deliveryMan.licenseNumber" name="licenseNumber" class="form-control" placeholder="Numéro de Permis" required />
+    </div>
+    <div class="form-group mb-3">
+            <label for="">Email</label>
+
+      <input [(ngModel)]="deliveryMan.email" name="email" class="form-control" placeholder="Email" required />
+    </div>
+    <div class="form-group mb-3">
+            <label for="">mot de passe</label>
+
+      <input [(ngModel)]="deliveryMan.password" name="password" type="password" class="form-control" placeholder="Mot de Passe" required />
+    </div>
+    <button type="submit" class="btn btn-success ">{{ editing ? 'modifier' : 'Créer' }}</button>
+    <button type="button" *ngIf="editing" (click)="cancelEdit()" class="btn btn-secondary ml-5">Annuler</button>
+  </form>
+
+  <!-- Table Title -->
+  <div class="title-container w-full mt-5 mb-3">
+    <h5 class="form-title">Liste des Livreurs</h5>
+  </div>
+
+  <!-- Table -->
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead class="thead-light">
+        <tr>
+          <th>Nom</th>
+          <th>Téléphone</th>
+          <th>Véhicule</th>
+          <th>Numéro de Permis</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let man of deliveryMen">
+          <td>{{ man.userName }}</td>
+          <td>{{ man.phone }}</td>
+          <td>{{ man.vehicle }}</td>
+          <td>{{ man.licenseNumber }}</td>
+          <td>{{ man.email }}</td>
+          <td class="">
+            <button (click)="editDeliveryMan(man)" class="btn btn-primary btn-sm">modifier</button>
+            <button (click)="deleteDeliveryMan(man._id)" class="btn btn-danger btn-sm ms-2">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

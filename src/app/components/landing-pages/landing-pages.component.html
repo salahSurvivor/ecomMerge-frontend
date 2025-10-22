@@ -1,0 +1,83 @@
+<div class="breadcrunmbs-container container padding-container">
+   <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-body-tertiary rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item "><a href="/">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Pages de destination</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+</div>
+<div class="templates-container container">
+  <div *ngFor="let template of templates" class="lp-card">
+    <label class="template-option">
+      <input 
+        type="radio"
+        data-bs-toggle="modal" 
+        data-bs-target="#CustomizationToggle"
+        name="selectedTemplate"
+        [value]="template"
+        [(ngModel)]="selectedTemplate"
+        (change)="selectTemplate(template)"
+      />
+      <span class="template-label">
+        {{ template.name }}
+      </span>
+    </label>
+    <div class="preview-section">
+      <img [src]="safeUrls[template.name]" class="card-img-top" alt="Aperçu">
+    </div>
+  </div>
+</div>
+
+<!-- Customization toggle window -->
+<div class="modal fade" id="CustomizationToggle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title w-100 text-center" id="exampleModalLabel">
+          Personnaliser le Modèle : 
+          <span style="color: rgb(65, 65, 255); font-weight: bold;">
+            {{selectedTemplate?.name}}
+          </span>
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <div class="lp-dorpsDown-container">
+          <p-dropdown 
+            [options]="storeList" 
+            [(ngModel)]="selectedStore"
+            (onChange)="onStoreChange($event)"
+            optionLabel="name" 
+            placeholder="-- Sélectionner un magasin --"
+            styleClass="custom-dropdown">
+          </p-dropdown>
+          <p-dropdown 
+            [options]="productList"
+            [(ngModel)]="selectedProduct"
+            (onChange)="onProductChange($event.value)"
+            optionLabel="productName"
+            placeholder="-- Choisir un produit --"
+            styleClass="custom-dropdown">
+          </p-dropdown>
+          <div class="payment-mode-container" *ngFor="let mode of PaymentModeList">
+              <label  class="custom-checkbox">
+                <input 
+                  type="checkbox" 
+                  [value]="mode" 
+                  (change)="onPaymentModeChange(mode, $event)" 
+                />
+                <span>{{ mode }}</span>
+              </label>
+          </div>
+        <form [formGroup]="landingForm" class="input-group mb-3">
+          <input type="text" formControlName="lp_Name" class="lp-name-inpt" placeholder="Nom de la page de destination" />
+        </form>
+        <button class="btn btn-primary" (click)="generateLandingPage()">Générer la Page de Destination</button>
+      </div>
+    </div>
+  </div>
+</div>

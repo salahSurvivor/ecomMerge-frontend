@@ -1,0 +1,171 @@
+.templates-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.lp-card {
+  flex: 1 1 calc(33.33% - 20px); /* Three cards per row with gap */
+  box-sizing: border-box; /* Ensure padding and margins are included in the width */
+}
+
+.preview-section {
+  text-align: center; /* Center the preview image */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .lp-card {
+    flex: 1 1 100%; /* Stack cards one under the other on mobile */
+  }
+}
+.breadcrunmbs-container {
+
+
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+}
+/* Hide the default radio button */
+.template-option input[type="radio"] {
+  display: none;
+}
+
+/* Style the label span by default */
+.template-option .template-label {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* When the radio is checked, style the label span */
+.template-option input[type="radio"]:checked + .template-label {
+  background-color: #1149ff; /* green */
+  color: white;
+}
+.lp-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  width: 580px;
+  height: auto;
+  background-color: #f9f9f9;
+}
+
+.preview-section {
+  margin-top: 10px;
+  border: 1px solid #eeee;
+  height: auto;
+  overflow: hidden;
+}
+.preview-section img{
+  height: auto;
+  width: 100%;
+}
+
+/* ---- */
+.payment-mode-container{
+  display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.custom-checkbox {
+  margin-inline-start: 8px;
+  display: inline-block;
+  padding: 8px;
+  border: 2px solid #ccc; /* Bordure par défaut */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur de pointeur au survol */
+  transition: background-color 0.3s, border-color 0.3s; /* Transition pour l'effet de changement de couleur */
+}
+
+.custom-checkbox input {
+  display: none;
+}
+
+.custom-checkbox input:checked + span {
+  background-color: #2b5dff;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.custom-checkbox span {
+  display: inline-block; 
+}
+
+
+/* ---- */
+
+/*
+
+.customization-panel {
+  position: fixed; ou absolute selon besoin
+  top: 80px;  ajuste selon ta barre/header 
+  right: 20px; à droite 
+  width: 300px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  overflow-y: auto;
+  max-height: 80vh;
+  border-radius: 5px;
+}
+
+.customization-panel h3 {
+  margin-top: 0;
+}
+
+.customization-panel label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.customization-panel input[type="text"],
+.customization-panel textarea {
+  width: 100%;
+  padding: 6px 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.product-input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.product-input-group input {
+  flex-grow: 1;
+}
+
+.product-input-group button {
+  padding: 6px 10px;
+}
+
+.generate-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.generate-button:hover {
+  background-color: #0056b3;
+}
+*/

@@ -1,0 +1,99 @@
+<form [formGroup]="infoForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-pen-nib"></i>
+            </span>
+            <input 
+                type="text" 
+                name="name"
+                formControlName="name"
+                [(ngModel)]="name" 
+                class="form-control" 
+                placeholder="Product Name" aria-label="Username" aria-describedby="basic-addon1" required/>
+        </div>
+        <div class="form-text text-danger" *ngIf="Name.touched || Name.dirty">
+            <p *ngIf="Name.errors?.['required']">Name is required</p>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-city"></i>
+            </span>
+            <input 
+                type="text" 
+                name="city"
+                formControlName="city" 
+                [(ngModel)]="city" 
+                class="form-control" 
+                placeholder="Customer City" aria-label="Username" aria-describedby="basic-addon1" required/>
+        </div>
+        <div class="form-text text-danger" *ngIf="City.touched || City.dirty">
+            <p *ngIf="City.errors?.['required']">City is required</p>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <div class="input-group ">
+            <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-phone"></i>
+            </span>
+            <input 
+                type="text" 
+                name="phone" 
+                formControlName="phone"
+                [(ngModel)]="phone" 
+                class="form-control" 
+                placeholder="Customer Phone Number" aria-label="Username" aria-describedby="basic-addon1" required/>
+        </div>
+        <div class="form-text text-danger" *ngIf="Phone.touched || Phone.dirty">
+            <p *ngIf="Phone.errors?.['required']">Phone is required</p>
+            <p *ngIf="Phone.errors?.['pattern']">Please provide a valid phone number</p>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-money-bill"></i>
+            </span>
+            <input 
+                type="text" 
+                name="purchase"
+                formControlName="purchase" 
+                [(ngModel)]="purchase" 
+                class="form-control" 
+                placeholder="Sale Price" aria-label="Username" aria-describedby="basic-addon1" required/>
+        </div>
+        <div class="form-text text-danger" *ngIf="Purchase.touched || Purchase.dirty">
+            <p *ngIf="Purchase.errors?.['required']">Sale price is required</p>
+            <p *ngIf="Purchase.errors?.['pattern']">Please provide a valid price</p>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <div class="input-group">
+            <span class="input-group-text" id="basic-addon1">
+                <i class="fa-solid fa-money-bill"></i>
+            </span>
+            <input 
+                type="text" 
+                name="sale" 
+                formControlName="sale"
+                [(ngModel)]="sale" 
+                class="form-control" 
+                placeholder="Purchase Price " aria-label="Username" aria-describedby="basic-addon1" required/>
+        </div>
+        <div class="form-text text-danger" *ngIf="Sale.touched || Sale.dirty">
+            <p *ngIf="Sale.errors?.['required']">Purchase price is required</p>
+            <p *ngIf="Sale.errors?.['pattern']">Please provide a valid price</p>
+            <p *ngIf="showError">Please provide a price smaller than sale price</p>
+        </div>
+    </div>
+
+    <div class="input-group mb-3">
+        <input type="submit" class="btn btn-success" value="Add" [disabled]="infoForm.invalid"/>
+    </div>
+</form>

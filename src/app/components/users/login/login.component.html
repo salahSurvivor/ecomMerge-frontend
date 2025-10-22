@@ -1,0 +1,45 @@
+<div class="login-wrapper d-flex justify-content-center align-items-center">
+  <div class="image-container ">
+    <img src="../../../../assets/images/login.jpg" alt="Login Image" class="img-fluid" />
+  </div>
+
+  <div class="login-card shadow-lg">
+    <h1 class="brand text-center mb-4">
+      <i class="fa-solid fa-store me-2"></i> ECOM MERGE
+    </h1>
+
+    <form (ngSubmit)="onLogin()">
+      <h2 class="text-center mb-4 text-primary">Connexion</h2>
+
+      <div class="mb-3">
+        <label class="form-label text-muted">Nom d'utilisateur</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          [(ngModel)]="name"
+          required />
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label text-muted">Mot de passe</label>
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          [(ngModel)]="password"
+          required />
+      </div>
+
+      <div class="d-grid mb-3">
+        <button type="submit" class="btn btn-primary">Connexion</button>
+      </div>
+
+      <div class="text-end">
+        <a routerLink="/register" class="text-decoration-none text-secondary">Créer un compte</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<p-toast></p-toast>
