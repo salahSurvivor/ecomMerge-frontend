@@ -13,11 +13,14 @@ export class RegisterComponent {
   email: string;
   password: string;
   isAdmin: boolean;
+  onLoad: boolean = false;
 
   constructor(private userService: UserServiceService, 
               private messageService: MessageService){}
 
   onSubmit(): void{
+    this.onLoad = true;
+
     const data = {
       name: this.name,
       email: this.email,
@@ -27,6 +30,8 @@ export class RegisterComponent {
     
     this.userService.onRegister(data).subscribe(
       () => {
+        this.onLoad = false;
+
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register With Success!!' });
       },
       (err) =>{

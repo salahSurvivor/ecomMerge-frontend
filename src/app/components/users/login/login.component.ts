@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   name: string;
   password: string;
+  onLoad: boolean = false;
 
   constructor(
     private readonly authService: GuardService,
@@ -20,6 +21,8 @@ export class LoginComponent {
   ){}
 
   onLogin():void{
+    this.onLoad = true;
+    
     const data = {
       name: this.name,
       password: this.password
@@ -32,6 +35,8 @@ export class LoginComponent {
           this.router.navigate(['/']);
         else if (this.authService.isDeliveryMan())
           this.router.navigate(['/delivery']);
+
+        this.onLoad = false;
       },
       error =>{
         this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.message});

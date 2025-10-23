@@ -32,8 +32,15 @@
       </div>
 
       <div class="d-grid mb-3">
-        <button type="submit" class="btn btn-primary">Connexion</button>
+        <!-- <button type="submit" class="btn btn-primary">Connexion</button> -->
+        
+        <button type="submit" class="btn btn-primary" [disabled]="onLoad">
+            <span *ngIf="!onLoad">Connexion</span>
+            <span *ngIf="onLoad" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span *ngIf="onLoad"> Chargement...</span>
+        </button>
       </div>
+
 
       <div class="text-end">
         <a routerLink="/register" class="text-decoration-none text-secondary">Créer un compte</a>

@@ -19,7 +19,11 @@
             pInputText [(ngModel)]="password" />
         </div>
 
-        <input type="submit" value="Connexion" class="btn btn-primary" />
+        <button type="submit" class="btn btn-primary" [disabled]="onLoad">
+            <span *ngIf="!onLoad">Connexion</span>
+            <span *ngIf="onLoad" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span *ngIf="onLoad"> Chargement...</span>
+        </button>
 
         <div></div>
         <a routerLink="/register"

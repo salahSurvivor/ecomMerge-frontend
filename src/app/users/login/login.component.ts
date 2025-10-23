@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   name: string;
   password: string;
+  onLoad: boolean = false;
 
   constructor(
     private readonly authService: GuardService,
@@ -20,6 +21,8 @@ export class LoginComponent {
   ){}
 
   onLogin():void{
+    this.onLoad = true;
+
     const data = {
       name: this.name,
       password: this.password
@@ -27,6 +30,7 @@ export class LoginComponent {
 
     this.authService.login(data).subscribe(
       todos => {
+        this.onLoad = false;
         localStorage.setItem('token', todos.token);
         this.router.navigate(['/']);  
       },
