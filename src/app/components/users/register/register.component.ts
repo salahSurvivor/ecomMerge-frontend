@@ -31,10 +31,10 @@ export class RegisterComponent {
     this.userService.onRegister(data).subscribe(
       () => {
         this.onLoad = false;
-
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register With Success!!' });
       },
       (err) =>{
+        this.onLoad = false;
         this.messageService.add({ severity: 'error', summary: 'Error', detail: err.error });
       }
     );

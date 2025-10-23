@@ -40,6 +40,7 @@ export class LoginComponent {
       },
       error =>{
         this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.message});
+        this.onLoad = false;
         this.authService.logout();
       },
     );
